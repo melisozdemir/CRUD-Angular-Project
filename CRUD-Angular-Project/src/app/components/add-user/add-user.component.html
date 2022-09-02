@@ -1,0 +1,21 @@
+<h5 class="text-center">Add New User</h5>
+<div class="mt-4">
+    <form [formGroup]="userAddForm" *ngIf="isNewUser">
+        <p>First Name: <input type="text" name="firstName" formControlName="firstName" id="firstName" /></p>
+        <p>Last Name: <input type="text" name="lastName" formControlName="lastName" id="lastName" /></p>
+        <p>Email: <input type="email" name="email" formControlName="email" id="email" /></p>
+        <p>
+            <a type="button" class="btn btn-primary mr-2" (click)="addUser()">Add User</a>
+        </p>
+    </form>
+
+    <form [formGroup]="userUpdateForm" *ngIf="!isNewUser">
+        <h2>Edit {{selectedUser.firstName}} {{selectedUser.lastName}} Details</h2>
+        <p>First Name: <input type="text" name="firstName" formControlName="firstName" id="firstName" /></p>
+        <p>Last Name: <input type="text" name="lastName" formControlName="lastName" id="lastName" /></p>
+        <p>Email: <input type="email" name="email" formControlName="email" id="email" /></p>
+        <p>
+            <a type="button" class="btn btn-primary mr-2" (click)="updateUser(selectedUser.id)">Update User</a>
+        </p>
+    </form>
+</div>
